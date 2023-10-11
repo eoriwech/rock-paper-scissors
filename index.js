@@ -8,18 +8,20 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1).toLowerCase();
     console.log(playerSelection)
     console.log(computerSelection)
-    if (playerSelection == "Rock" && computerSelection == "Paper") {
-        return `You Lose! Paper beats Rock`
-    } else if (playerSelection == "Rock" && computerSelection == "Scissor") {
-        return `You Win! Rock beats Scissor`
-    } else if (playerSelection == "Paper" && computerSelection == "Scissor") {
-        return `You Lose! Scissor beats Paper`
-    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        return `You Win! Paper beats Rock`
-    } else if (playerSelection == "Scissor" && computerSelection == "Rock") {
-            return `You Lose! Scissor beats Rock`
-    } else if (playerSelection == "Scissor" && computerSelection == "Paper") {
-        return `You Win! Scissor beats Paper`
+    if (
+        (playerSelection == "Rock" && computerSelection == "Paper") ||
+        (playerSelection == "Paper" && computerSelection == "Scissor") ||
+        (playerSelection == "Scissor" && computerSelection == "Rock")
+    )  {
+        computerScore++
+        return `You Lose! ${computerSelection} beats ${playerSelection}`
+    } else if (
+        (playerSelection == "Rock" && computerSelection == "Scissor") ||
+        (playerSelection == "Paper" && computerSelection == "Rock") ||
+        (playerSelection == "Scissor" && computerSelection == "Paper")
+    ) {
+        playerScore++
+        return `You Win! ${playerSelection} beats ${computerSelection}`
     } else {
         return `It is a Draw!`
     }
