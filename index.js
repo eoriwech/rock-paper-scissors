@@ -5,19 +5,20 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection.toLowerCase();
+    playerSelection = playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1).toLowerCase();
+    console.log(playerSelection)
     console.log(computerSelection)
-    if (playerSelection == "rock" && computerSelection == "Paper") {
+    if (playerSelection == "Rock" && computerSelection == "Paper") {
         return `You Lose! Paper beats Rock`
-    } else if (playerSelection == "rock" && computerSelection == "Scissor") {
+    } else if (playerSelection == "Rock" && computerSelection == "Scissor") {
         return `You Win! Rock beats Scissor`
-    } else if (playerSelection == "paper" && computerSelection == "Scissor") {
+    } else if (playerSelection == "Paper" && computerSelection == "Scissor") {
         return `You Lose! Scissor beats Paper`
-    } else if (playerSelection == "paper" && computerSelection == "Rock") {
+    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
         return `You Win! Paper beats Rock`
-    } else if (playerSelection == "scissor" && computerSelection == "Rock") {
+    } else if (playerSelection == "Scissor" && computerSelection == "Rock") {
             return `You Lose! Scissor beats Rock`
-    } else if (playerSelection == "scissor" && computerSelection == "Paper") {
+    } else if (playerSelection == "Scissor" && computerSelection == "Paper") {
         return `You Win! Scissor beats Paper`
     } else {
         return `It is a Draw!`
