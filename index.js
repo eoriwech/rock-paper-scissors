@@ -1,3 +1,6 @@
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice() {
     let choice = ["Rock", "Paper", "Scissor"];
     let randomIndex = Math.floor(Math.random() * 3);
@@ -31,6 +34,13 @@ function game() {
     for (let i = 1; i < 6; i++) {
         let playerSelection = prompt("Choose rock, paper or scissor");
         console.log(playRound(playerSelection, getComputerChoice()));
+    }
+    if (playerScore > computerScore) {
+        console.log("Congrats you won the game");
+    } else if (playerScore < computerScore) {
+        console.log("Sorry you lost the game");
+    } else {
+        console.log("The game is a draw");
     }
 }
 
