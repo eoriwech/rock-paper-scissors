@@ -30,18 +30,42 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    for (let i = 1; i < 6; i++) {
-        let playerSelection = prompt("Choose rock, paper or scissor");
-        console.log(playRound(playerSelection, getComputerChoice()));
+document.querySelector(".btnRock").addEventListener("click", () => {
+    const result = playRound("Rock", getComputerChoice());
+    document.querySelector(".result").textContent = result;    
+    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    if (playerScore == 5 || computerScore == 5) {
+        winner()
     }
-    if (playerScore > computerScore) {
-        console.log("Congrats you won the game");
-    } else if (playerScore < computerScore) {
-        console.log("Sorry you lost the game");
-    } else {
-        console.log("The game is a draw");
-    }
-}
+})
 
-game()
+document.querySelector(".btnPaper").addEventListener("click", () => {
+    const result = playRound("Paper", getComputerChoice());
+    document.querySelector(".result").textContent = result;    
+    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    if (playerScore == 5 || computerScore == 5) {
+        winner()
+    }
+})
+
+document.querySelector(".btnScissor").addEventListener("click", () => {
+    const result = playRound("Scissor", getComputerChoice());
+    document.querySelector(".result").textContent = result;    
+    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    if (playerScore == 5 || computerScore == 5) {
+        winner()
+    }
+})
+
+function winner() {
+    if (playerScore == 5) {
+        //document.querySelector(".winner").textContent = `Congrats you won the game`;
+        alert("Congrats you won the game")
+        
+    } else {
+        //document.querySelector(".winner").textContent = `Sorry you lost the game`;
+        alert("Sorry you lost the game")
+    }
+    playerScore = 0;
+    computerScore = 0;
+}
