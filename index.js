@@ -1,5 +1,7 @@
 let computerScore = 0;
 let playerScore = 0;
+let resultDiv = document.querySelector(".result");
+let scoreDiv = document.querySelector(".score");
 
 function getComputerChoice() {
     let choice = ["Rock", "Paper", "Scissor"];
@@ -32,8 +34,8 @@ function playRound(playerSelection, computerSelection) {
 
 document.querySelector(".btnRock").addEventListener("click", () => {
     const result = playRound("Rock", getComputerChoice());
-    document.querySelector(".result").textContent = result;    
-    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    resultDiv.textContent = result;    
+    scoreDiv.textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
     if (playerScore == 5 || computerScore == 5) {
         winner()
     }
@@ -41,8 +43,8 @@ document.querySelector(".btnRock").addEventListener("click", () => {
 
 document.querySelector(".btnPaper").addEventListener("click", () => {
     const result = playRound("Paper", getComputerChoice());
-    document.querySelector(".result").textContent = result;    
-    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    resultDiv.textContent = result;    
+    scoreDiv.textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
     if (playerScore == 5 || computerScore == 5) {
         winner()
     }
@@ -50,8 +52,8 @@ document.querySelector(".btnPaper").addEventListener("click", () => {
 
 document.querySelector(".btnScissor").addEventListener("click", () => {
     const result = playRound("Scissor", getComputerChoice());
-    document.querySelector(".result").textContent = result;    
-    document.querySelector(".score").textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
+    resultDiv.textContent = result;    
+    scoreDiv.textContent = `Your Score is ${playerScore}, computer score is ${computerScore}`;
     if (playerScore == 5 || computerScore == 5) {
         winner()
     }
@@ -59,11 +61,9 @@ document.querySelector(".btnScissor").addEventListener("click", () => {
 
 function winner() {
     if (playerScore == 5) {
-        //document.querySelector(".winner").textContent = `Congrats you won the game`;
         alert("Congrats you won the game")
         
     } else {
-        //document.querySelector(".winner").textContent = `Sorry you lost the game`;
         alert("Sorry you lost the game")
     }
     playerScore = 0;
